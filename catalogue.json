@@ -3,7 +3,12 @@
     {
       "id": 1,
       "name": "Default",
-      "description": "This is a dark-themed HTML template designed for religious study content, featuring a clean and modern interface with a table of contents, collapsible study points, and branded footer sections. The template includes sections for scripture references, discussions, considerations, and conclusions, all structured within an expandable/collapsible format. The design incorporates responsive styling, smooth scrolling, and follows a consistent color scheme with dark backgrounds and light text for optimal readability."
+      "description": "This is a dark-themed HTML template designed for religious study content."
+    },
+    {
+      "id": 2,
+      "name": "Light",
+      "description": "This is a light-themed HTML template designed for religious study content."
     }
   ]
 }

@@ -6,14 +6,10 @@
     <title>The Writer Company AI - [Topic of Study]</title>
     <style>
         /* General Styles */
-        html {
-            scroll-behavior: smooth; /* Ensure smooth scrolling applies */
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #2d2d2d;
-            color: #eee;
+            background-color: #fff;
+            color: #222;
             margin: 0;
             padding: 0;
             line-height: 1.8;
@@ -27,54 +23,56 @@
         }
 
         header, footer {
-            background-color: #222;
-            color: #fff;
+            background-color: #f4f4f4;
+            color: #222;
             padding: 15px;
-            text-align: center;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
         }
 
         h1, h2 {
-            color: #fff;
+            color: #333;
         }
 
         h2 {
             font-size: 1.8em;
-            border-bottom: 2px solid #777;
+            border-bottom: 2px solid #ccc;
             padding-bottom: 5px;
         }
 
         .section {
             margin-bottom: 20px;
             padding: 20px;
-            background-color: #444;
+            background-color: #f9f9f9;
             border-radius: 8px;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Collapsible Study Points */
         .point {
             margin-bottom: 10px;
             padding-left: 10px;
-            border-left: 4px solid #888;
+            border-left: 4px solid #666;
             cursor: pointer;
+            font-weight: bold;
         }
 
         .content {
             display: none;
             padding: 10px;
-            background-color: #555;
+            background-color: #eee;
             border-radius: 6px;
             margin-top: 5px;
         }
 
         .scripture, .discussion, .considerations, .conclusion {
             margin-bottom: 10px;
-            color: #ccc;
+            color: #444;
         }
 
         /* Table of Contents */
         .toc {
-            background-color: #333;
+            background-color: #f4f4f4;
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -82,7 +80,7 @@
 
         .toc h3 {
             margin-top: 0;
-            color: #fff;
+            color: #222;
         }
 
         .toc ul {
@@ -90,12 +88,8 @@
             padding: 0;
         }
 
-        .toc li {
-            margin: 5px 0;
-        }
-
         .toc a {
-            color: #ddd;
+            color: #222;
             text-decoration: none;
         }
 
@@ -103,13 +97,41 @@
             text-decoration: underline;
         }
 
+        .toggle-buttons {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .toggle-buttons button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .toggle-buttons button:hover {
+            background-color: #333;
+        }
+
         footer {
-            padding: 15px 0;
-            text-align: center;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .branding {
+            color: #666;
+            display: flex;
+            flex-wrap: wrap;  
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
         }
 
         .branding a {
-            color: #bbb;
+            color: #444;
             text-decoration: none;
         }
 
@@ -117,27 +139,24 @@
             text-decoration: underline;
         }
 
-        .axioms {
-            font-style: italic;
-            margin-top: 15px;
-            color: #aaa;
-        }
-
         .version {
-            margin-top: 10px;
+            margin-bottom: 10px;
             font-size: 0.9em;
-            color: #bbb;
+            color: #555;
         }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="version">
+            <p><strong>Template Version:</strong> 2.0.0</p>
+            <p><strong>Date Created:</strong> [Insert Date Here]</p>
+        </div>
         <h1>[Topic of Study]</h1>
     </header>
 
     <div class="container">
-        <!-- Table of Contents -->
         <div class="toc">
             <h3>Table of Contents</h3>
             <ul>
@@ -145,7 +164,11 @@
             </ul>
         </div>
 
-        <!-- Example Study Section -->
+        <div class="toggle-buttons">
+            <button onclick="expandAll()">Expand All</button>
+            <button onclick="collapseAll()">Collapse All</button>
+        </div>
+
         <div class="section" id="importance-of-studying">
             <h2>Example Study: The Importance of Studying</h2>
             <div class="point" onclick="toggleContent(this)">
@@ -171,26 +194,30 @@
     <footer>
         <div class="branding">
             The Writer Company, Trinidad and Tobago<br>
+            <p>* Existence of God</p>
+            <p>* KJV Bible as Truth</p>
+            <p>* Jesus Christ as Truth</p>
             <a href="https://thewriterco.com">thewriterco.com</a> |
             <a href="https://thewriterco.com/reasoning">thewriterco.com/reasoning</a> |
             <a href="https://thewriterco.com/ai">thewriterco.com/ai</a>
         </div>
-        <div class="axioms">
-            <p>* Existence of God</p>
-            <p>* KJV Bible as Truth</p>
-            <p>* Jesus Christ as Truth</p>
-        </div>
-        <div class="version">
-            <p><strong>Template Version:</strong> 1.0.0</p>
-            <p><strong>Date Created:</strong> [Insert Date Here]</p>
+        <div class="branding">
+           
         </div>
     </footer>
 
     <script>
-        // Expand/collapse study points
         function toggleContent(element) {
             const content = element.querySelector(".content");
             content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+
+        function expandAll() {
+            document.querySelectorAll(".content").forEach(content => content.style.display = "block");
+        }
+
+        function collapseAll() {
+            document.querySelectorAll(".content").forEach(content => content.style.display = "none");
         }
     </script>
 
